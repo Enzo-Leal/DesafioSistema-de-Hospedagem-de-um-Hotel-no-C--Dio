@@ -1,4 +1,71 @@
-﻿//using Desafio_Hospedagem.models;
+
+using System.Text;
+using Desafio_Hospedagem.models;
+
+Console.OutputEncoding = Encoding.UTF8;
+
+// Cria os modelos de hóspedes e cadastra na lista de hóspedes
+List<Pessoa> hospedes = new List<Pessoa>();
+
+Pessoa p1 = new Pessoa(nome: "Hóspede 1");
+Pessoa p2 = new Pessoa(nome: "Hóspede 2");
+Pessoa p3 = new Pessoa(nome: "Hóspede 3");
+Pessoa p4 = new Pessoa(nome: "Hóspede 4");
+
+hospedes.Add(p1);
+hospedes.Add(p2);
+hospedes.Add(p3);
+hospedes.Add(p4);
+
+// Cria a suíte
+Suite suite_premium = new Suite(tipoSuite: "Premium", capacidade: 2, valorDiaria: 30);
+Suite suite_luxo = new Suite(tipoSuite: "Premium", capacidade: 4, valorDiaria: 80);
+
+// Cria uma nova reserva, passando a suíte e os hóspedes
+Reserva reserva = new Reserva(diasReservados: 5);
+reserva.CadastrarSuite(suite_premium);
+reserva.CadastrarSuite(suite_luxo);
+reserva.CadastrarHospedes(hospedes);
+
+// Exibe a quantidade de hóspedes e o valor da diária
+Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
+Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//using Desafio_Hospedagem.models;
 //
 //static void main()
 //{
@@ -119,29 +186,3 @@
 
 
 
-
-using System.Text;
-using Desafio_Hospedagem.models;
-
-Console.OutputEncoding = Encoding.UTF8;
-
-// Cria os modelos de hóspedes e cadastra na lista de hóspedes
-List<Pessoa> hospedes = new List<Pessoa>();
-
-Pessoa p1 = new Pessoa(nome: "Hóspede 1");
-Pessoa p2 = new Pessoa(nome: "Hóspede 2");
-
-hospedes.Add(p1);
-hospedes.Add(p2);
-
-// Cria a suíte
-Suite suite = new Suite(tipoSuite: "Premium", capacidade: 2, valorDiaria: 30);
-
-// Cria uma nova reserva, passando a suíte e os hóspedes
-Reserva reserva = new Reserva(diasReservados: 5);
-reserva.CadastrarSuite(suite);
-reserva.CadastrarHospedes(hospedes);
-
-// Exibe a quantidade de hóspedes e o valor da diária
-Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
-Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
